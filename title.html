@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+     content="width=device-width, initial-scale=1, user-scalable=yes">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <title>Music Festival Guide</title>
+</head>
+<body = class="container">
+  <div class="irow">
+    <div class="bg">
+      <div class="col-title"><h1>A Guide To Enjoying Music Festivals</h1></div>
+      <div class="col-author"><h5>By: Michael Nguyen</h5></div>
+      <div class="col-term"><h5>Fall 2017</h5></div> 
+    </div>
+    <div class="col-button"> <button class="btn-lg btn-primary" id="enter" onclick="loading()">Enter</button></div>  
+    <div class="col"><audio autoplay><source src="welcome.mp3" type="audio/mpeg"></audio></div>
+    <div class="col"><audio autoplay loop id="num1"><source src="intro.mp3" type="audio/mpeg"></audio></div>    
+    <div class="col"><audio id="click"><source src="click.mp3" type="audio/mpeg"></audio></div>
+  </div>
+  <script>
+    var song = document.getElementById('num1')
+    song.volume =0.1;
+
+    function loading(){
+      var change = document.getElementById('enter');
+      var click = document.getElementById('click');
+
+      if(change.innerHTML  == "Enter"){
+        change.innerHTML = "Loading ...";
+        change.disabled = true;
+        click.play();
+      }
+      else{
+        change.innerHTML  = "Enter";
+        click.play();
+      }
+        setTimeout(function(){
+          window.location.replace('find.html') }, 2000);
+    }
+  </script>
+</body>
+</html>
