@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+     content="width=device-width, initial-scale=1, user-scalable=yes">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <title>End Of Event</title>
+</head>
+<body = class="container">
+  <div class="row">
+      <div class="col-page"><h1>End Of Event</h1></div>
+      <div class="col-lg-3" id="percent">
+        <h3>Complete: <span id="num">0</span>%</h3>
+      </div>
+      <div class="col-lg-6">
+        <form>
+          <div class="checkbox">
+            <label><input type="checkbox" name="event" id="1" onclick="nextSound()"> Have you met up with your friends at the check point?</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="event" id="2" onclick="nextSound()"> Have you bought your merchandise yet?</label> 
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="event" id="3" onclick="nextSound()"> Is your source of transportation back home ready?</label> 
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="event" id="4" onclick="nextSound()"> Have you left the event yet?</label> 
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-3">
+        <div class="col-button"> <button class="btn-lg btn-primary" id="enter" onclick="check()">Check</button></div> 
+      </div> 
+  </div>
+  <div class="newRow">
+    <div class="col-sm-6">
+      <div class="col-button"><a href="remember.html"><button class="btn-lg btn-success">Back</button></a></div>
+    </div>
+    <div class="col-sm-6">
+      <div class="col-button"><a href="close.html"><button class="btn-lg btn-success">Next</button></a></div>
+    </div>
+
+  </div>
+  <div class="col"><audio id="click"><source src="click.mp3" type="audio/mpeg"></audio></div>
+
+  <div class="col"><audio id="drip"><source src="drip.mp3" type="audio/mpeg"></audio></div>
+
+  <script>
+    var click = document.getElementById('click');
+    var drip = document.getElementById('drip');
+    var percent = document.getElementById('num');
+    var opt1 = document.getElementById('1');
+    var opt2 = document.getElementById('2');
+    var opt3 = document.getElementById('3');
+    var opt4 = document.getElementById('4');
+    var color = document.getElementById('percent');
+    var perc;
+    var con =25;
+
+    function nextSound(){
+      drip.play();
+    }
+    
+
+    function check(){
+      click.play();
+      perc =0;
+
+      if(opt1.checked){
+        perc = perc+con;
+        console.log(perc);  
+      }
+      if(opt2.checked){
+        perc = perc+con;
+        console.log(perc);
+      }
+      if (opt3.checked){
+        perc = perc+con;
+        console.log(perc);
+      }
+      if (opt4.checked) {
+        perc = perc+con;
+        console.log(perc);
+      }
+
+      if(perc === 100){
+        color.style.color="limegreen";
+      }
+      else if(perc >=75){
+        color.style.color="green";
+      }
+      else if(perc >=50){
+        color.style.color="orange";    
+      }
+      else{
+        color.style.color="red";
+      }
+
+      var p = perc.toString();
+      percent.textContent = p;  
+    }
+
+  </script>
+</body>
+</html>

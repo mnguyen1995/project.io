@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+     content="width=device-width, initial-scale=1, user-scalable=yes">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <title>End Of Music Festival Guide</title>
+</head>
+<body = class="container">
+  <div class="irow">
+    <div class="bg">
+      <div class="col-title"><h1>Hope you had a blast!</h1></div> 
+    </div>
+    <div class="col-dance"><img src="dance.gif"></div>
+    <div class="col-button"> <button class="btn-lg btn-primary" id="enter" onclick="loading()">Restart</button></div>  
+    <div class="col"><audio autoplay><source src="Blast.mp3" type="audio/mpeg"></audio></div>
+    <div class="col"><audio autoplay loop id="num1"><source src="outro.mp3" type="audio/mpeg"></audio></div>    
+    <div class="col"><audio id="click"><source src="click.mp3" type="audio/mpeg"></audio></div>
+  </div>
+  <script>
+    var song = document.getElementById('num1')
+    song.volume =0.2;
+
+    function loading(){
+      var change = document.getElementById('enter');
+      var click = document.getElementById('click');
+
+      if(change.innerHTML  == "Restart"){
+        change.innerHTML = "Loading ...";
+        change.disabled = true;
+        click.play();
+      }
+      else{
+        change.innerHTML  = "Restart  ";
+        click.play();
+      }
+        setTimeout(function(){
+          window.location.replace('title.html') }, 2000);
+    }
+  </script>
+</body>
+</html>
